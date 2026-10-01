@@ -8,16 +8,16 @@ La plataforma reúne preguntas clave, conceptos fundamentales y ejercicios diná
 
 ## Características Principales
 
-- **○ Modo Cuestionario (Quiz):** 
+○ **Modo Cuestionario (Quiz):** 
   - Banco de preguntas de opción múltiple con explicaciones.
   - Barra de progreso interactiva y contador de puntaje.
   - Modo aleatorio (Randomize) para variabilidad en los intentos de estudio.
-- **○ Modo Flashcards:**
+○ **Modo Flashcards:**
   - Tarjetas interactivas con giro de 360° para memorización de preguntas y respuestas rápidas.
-- **○  Ejercicios Interactivos (Drag & Drop):**
+○ **Ejercicios Interactivos (Drag & Drop):**
   - **El Modelo Diamante:** Arrastra los elementos del análisis de incidentes (Adversario, Capacidad, Infraestructura, Víctima).
   - **Ciclo de Administración de Vulnerabilidades:** Ordena cronológicamente las 6 fases del ciclo.
-- ** ○ Glosario / Guía Rápida:**
+○ **Glosario / Guía Rápida:**
   - Resumen concentrado de puertos/protocolos, comandos de consola (Windows/Linux), clasificación de malware y la triada CIA.
 
 ---
