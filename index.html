@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudiando... 🐼</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header>
+    <h1>Camino a certificación de Ciberseguridad</h1>
+    <p class="subtitle">🐼 Banco de Estudio Interactivo 🐼</p>
+  </header>
+
+  <div class="nav-tabs">
+    <button class="tab-btn" onclick="switchMode('flashcards')">Flashcards</button>
+    <button class="tab-btn active" onclick="switchMode('quiz')">Cuestionario</button>
+    <button class="tab-btn" onclick="switchMode('interactive')">Ejercicios</button>
+    <button class="tab-btn" onclick="switchMode('glossary')">Glosario 📖</button>
+  </div>
+
+  <div class="container">
+
+    <div class="random-toggle-container">
+      <span class="toggle-label">Aleatorio</span>
+      <label class="switch">
+        <input type="checkbox" id="random-toggle" onchange="toggleRandomMode(this.checked)">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- CUESTIONARIO -->
+    <div id="quiz-view">
+      <div class="quiz-header">
+        <span id="quiz-progress">Pregunta 1 de 40</span>
+        <span id="quiz-score">Puntos: 0</span>
+      </div>
+
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <div class="p-title" id="quiz-question">Cargando...</div>
+      <div class="options-grid" id="quiz-options"></div>
+      
+      <div class="explanation hidden" id="quiz-explanation"></div>
+
+      <div class="action-wrapper">
+        <button class="action-btn hidden" id="next-btn" onclick="nextQuestion()">Siguiente Pregunta</button>
+      </div>
+    </div>
+
+    <!-- VISTA RESULTADOS -->
+    <div id="results-view" class="results-card hidden">
+      <h2>¡Finalizado 🐼!</h2>
+      <div class="score-badge" id="final-score">0 / 40</div>
+      <p id="score-message" class="score-msg"></p>
+      <button class="action-btn btn-center" onclick="restartQuiz()">Reiniciar Cuestionario</button>
+    </div>
+
+    <!-- FLASHCARDS -->
+    <div id="flashcards-view" class="hidden">
+      <div class="quiz-header">
+        <span id="card-progress">Tarjeta 1 de 40</span>
+        <span>Haz clic en la tarjeta para voltearla</span>
+      </div>
+
+      <div class="flashcard-wrapper">
+        <div class="flashcard" id="flashcard" onclick="flipCard()">
+          <div class="card-face card-front">
+            <p id="card-question">Pregunta...</p>
+            <span class="card-hint">🔄 Toca para ver la respuesta</span>
+          </div>
+          <div class="card-face card-back">
+            <p id="card-answer">Respuesta...</p>
+            <p id="card-expl">Explicación...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-controls">
+        <button class="tab-btn" onclick="prevCard()">← Anterior</button>
+        <button class="tab-btn" onclick="nextCard()">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- INTERACTIVO -->
+    <div id="interactive-view" class="hidden">
+      <h2>Práctica Interactiva</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Arrastra los conceptos a sus posiciones correctas según la especificación del examen.</p>
+
+      <!-- SECCIÓN MODELO DIAMANTE -->
+      <div class="drag-section">
+        <h3>1. El Modelo Diamante de Análisis de Incidentes</h3>
+      
+        <div class="draggable-pool" id="diamond-pool">
+          <div class="drag-item" draggable="true" id="item-adv">Adversario</div>
+          <div class="drag-item" draggable="true" id="item-cap">Capacidad</div>
+          <div class="drag-item" draggable="true" id="item-inf">Infraestructura</div>
+          <div class="drag-item" draggable="true" id="item-vic">Víctima</div>
+        </div>
+
+        <div class="diamond-grid">
+          <div class="drop-zone top" data-target="item-adv">¿Quién ataca?</div>
+          <div class="diamond-middle">
+            <div class="drop-zone left" data-target="item-inf">¿Qué usa para conectar?</div>
+            <div class="drop-zone right" data-target="item-cap">¿Qué creó/desarrolló?</div>
+          </div>
+          <div class="drop-zone bottom" data-target="item-vic">¿Quién es el afectado?</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- SECCIÓN CICLO DE VULNERABILIDADES -->
+      <div class="drag-section">
+        <h3>2. Ciclo de Administración de Vulnerabilidades</h3>
+        <p class="section-note">Ordena las 6 fases del ciclo arrastrándolas a su posición numérica:</p>
+
+        <div class="draggable-pool" id="cycle-pool">
+          <div class="drag-item" draggable="true" id="cycle-eval">Evaluar</div>
+          <div class="drag-item" draggable="true" id="cycle-prio">Priorizar activos</div>
+          <div class="drag-item" draggable="true" id="cycle-corr">Corregir</div>
+          <div class="drag-item" draggable="true" id="cycle-desc">Descubrir</div>
+          <div class="drag-item" draggable="true" id="cycle-veri">Verificar</div>
+          <div class="drag-item" draggable="true" id="cycle-info">Informar</div>
+        </div>
+
+        <div class="cycle-grid">
+          <div class="drop-zone-step" data-step="1" data-target="cycle-desc">Paso 1</div>
+          <div class="drop-zone-step" data-step="2" data-target="cycle-prio">Paso 2</div>
+          <div class="drop-zone-step" data-step="3" data-target="cycle-eval">Paso 3</div>
+          <div class="drop-zone-step" data-step="4" data-target="cycle-info">Paso 4</div>
+          <div class="drop-zone-step" data-step="5" data-target="cycle-corr">Paso 5</div>
+          <div class="drop-zone-step" data-step="6" data-target="cycle-veri">Paso 6</div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; text-align:center;">
+        <button class="action-btn btn-center" onclick="resetDragAndDrop()">Reiniciar Ejercicios</button>
+      </div>
+    </div>
+
+    <!-- GLOSARIO -->
+    <div id="glossary-view" class="hidden">
+      <h2>Guía Rápida de Conceptos Clave 🐼</h2>
+      <p class="section-note">Resumen imprescindible para repasar antes del examen de Certiport.</p>
+
+      <div class="glossary-grid">
+        <div class="glossary-card">
+          <h3>🔌 Puertos y Protocolos</h3>
+          <ul>
+            <li><b>SSH (22):</b> Acceso remoto cifrado seguro.</li>
+            <li><b>Telnet (23):</b> Acceso remoto sin cifrar (texto plano).</li>
+            <li><b>DNS (53):</b> Convierte nombres de dominio a direcciones IP.</li>
+            <li><b>HTTP (80):</b> Web sin cifrar.</li>
+            <li><b>HTTPS (443):</b> Web cifrada con SSL/TLS.</li>
+            <li><b>RDP (3389):</b> Escritorio remoto de Windows.</li>
+          </ul>
+        </div>
+
+        <div class="glossary-card">
+          <h3>💻 Comandos Esenciales</h3>
+          <ul>
+            <li><b>ping:</b> Verifica la conectividad entre dos equipos.</li>
+            <li><b>tracert / traceroute:</b> Muestra la ruta y saltos hacia un destino.</li>
+            <li><b>nslookup:</b> Consulta registros de servidores DNS.</li>
+            <li><b>netstat:</b> Muestra conexiones activas y puertos abiertos.</li>
+            <li><b>ipconfig / ip a:</b> Muestra la IP y configuración de red.</li>
+          </ul>
+        </div>
+
+        <div class="glossary-card">
+          <h3>🦠 Tipos de Malware</h3>
+          <ul>
+            <li><b>Gusano (Worm):</b> Se autorreplica por la red sin interacción humana.</li>
+            <li><b>Virus:</b> Requiere la ejecución de un archivo infectado.</li>
+            <li><b>Troyano:</b> Se camufla como software útil pero es malicioso.</li>
+            <li><b>Ransomware:</b> Cifra los archivos del sistema y pide rescate.</li>
+          </ul>
+        </div>
+
+        <div class="glossary-card">
+          <h3>🛡️ Triada CIA y Backups</h3>
+          <ul>
+            <li><b>Confidencialidad:</b> Cifrado, control de acceso, VPN.</li>
+            <li><b>Integridad:</b> Funciones Hash (SHA-256), firmas digitales.</li>
+            <li><b>Disponibilidad:</b> Backups, redundancia, protección anti-DDoS.</li>
+            <li><b>Backup Incremental:</b> Guarda cambios desde el último backup (rápido).</li>
+            <li><b>Backup Diferencial:</b> Guarda cambios desde el último backup completo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
