@@ -350,7 +350,119 @@ const questions = [
     ],
     correct: 0,
     expl: "Las 6 metacaracterísticas agregan contexto al evento: Marca de hora, Fase del ataque, Resultado, Dirección del flujo, Metodología utilizada y Recursos requeridos."
-  }
+  },
+
+{
+  q: "41. Un sistema de su red está experimentando tiempos de respuesta más lentos de lo normal. Con el fin de reunir información sobre el estado del sistema, ejecuta el comando netstat -a. Para mostrar todos los puertos TCP que tienen el estado En escucha, ¿qué indica el estado En escucha sobre estos puertos?",
+  options: [
+    "Los puertos están conectados activamente a otro sistema o proceso",
+    "El estado de conexión de los puertos es desconocido",
+    "Los puertos están abiertos en el sistema y a la espera de conexiones",
+    "El extremo remoto está desconectado y los puertos están cerrando"
+  ],
+  correct: 2,
+  expl: "El estado LISTENING (En escucha) indica que el puerto está abierto y a la espera de que un cliente o proceso remoto inicie una conexión."
+},
+{
+  q: "42. Relacione cada tipo de registro de Windows con la descripción correcta.",
+  options: [
+    "Aplicación: Programas | Configuración: Instalación/OS | Sistema: Hardware/Driver | Seguridad: Directivas de auditoría",
+    "Aplicación: Hardware | Configuración: Directivas | Sistema: Programas | Seguridad: Instalación de software",
+    "Aplicación: Instalación de software | Configuración: Programas | Sistema: Directivas | Seguridad: Hardware",
+    "Aplicación: Directivas de auditoría | Configuración: Hardware | Sistema: Instalación/OS | Seguridad: Programas"
+  ],
+  correct: 0,
+  expl: "Aplicación registra eventos de programas; Configuración guarda datos de instalación/actualización; Sistema registra eventos de hardware/drivers; y Seguridad guarda eventos de auditoría (accesos/permisos)."
+},
+{
+  q: "43. Relacione cada término de ciberseguridad con su definición correcta: (a) Activo, (b) Amenaza, (c) Riesgo, (d) Vulnerabilidad.",
+  options: [
+    "a: Personas/datos | b: Acción con efecto negativo | c: Potencial de pérdida | d: Debilidad que expone a ataques",
+    "a: Potencial de pérdida | b: Personas/datos | c: Debilidad que expone a ataques | d: Acción con efecto negativo",
+    "a: Debilidad que expone a ataques | b: Potencial de pérdida | c: Acción con efecto negativo | d: Personas/datos",
+    "a: Acción con efecto negativo | b: Debilidad que expone a ataques | c: Personas/datos | d: Potencial de pérdida"
+  ],
+  correct: 0,
+  expl: "Los activos son los recursos a proteger; la amenaza es lo que puede causar daño; el riesgo es la probabilidad de que ocurra la pérdida; y la vulnerabilidad es la debilidad existente."
+},
+{
+  q: "44. Relacione los pilares de la seguridad (CIA) con su definición: (1) Disponibilidad, (2) Integridad, (3) Confidencialidad.",
+  options: [
+    "1: Solicitudes legítimas acceden | 2: Datos no modificados | 3: Solo usuarios autorizados leen",
+    "1: Solo usuarios autorizados leen | 2: Solicitudes legítimas acceden | 3: Datos no modificados",
+    "1: Datos no modificados | 2: Solo usuarios autorizados leen | 3: Solicitudes legítimas acceden",
+    "1: Solicitudes legítimas acceden | 2: Solo usuarios autorizados leen | 3: Datos no modificados"
+  ],
+  correct: 0,
+  expl: "Disponibilidad garantiza el acceso cuando se requiere; Integridad evita la alteración no autorizada de la información; y Confidencialidad limita la lectura a personal autorizado."
+},
+{
+  q: "45. Evalúe la veracidad de las siguientes afirmaciones éticas: I. Usar credenciales de un empleado descontento para supervisarlo. II. Acceder a datos de empleados en un servidor si se tiene autorización. III. Compartir datos confidenciales con usuarios no autorizados.",
+  options: [
+    "I: Falso | II: Verdadero | III: Falso",
+    "I: Verdadero | II: Verdadero | III: Falso",
+    "I: Falso | II: Falso | III: Verdadero",
+    "I: Verdadero | II: Falso | III: Falso"
+  ],
+  correct: 0,
+  expl: "Usar credenciales ajenas viola el principio de no suplantación; acceder a datos autorizados en cumplimiento del rol es ético; y divulgar información confidencial vulnera los acuerdos de privacidad."
+},
+{
+  q: "46. Está revisando el plan de recuperación de desastres de su empresa. ¿Qué dos acciones diarias de copia de seguridad de los datos debe incluir en el plan? (Elija dos opciones)",
+  options: [
+    "Respaldo en medios extraíbles fuera de las instalaciones Y Respaldo mediante servicios en la nube",
+    "Servidor local distinto Y Respaldo RAID en disco externo local",
+    "Servidor local distinto Y Respaldo mediante servicios en la nube",
+    "Respaldo RAID en disco externo local Y Respaldo en medios extraíbles fuera de las instalaciones"
+  ],
+  correct: 0,
+  expl: "Para garantizar la resiliencia en caso de desastre físico en la sede principal, las copias de seguridad deben custodiarse fuera de las instalaciones (sitio secundario/medios extraíbles) y/o en la nube."
+},
+{
+  q: "47. ¿Cuál es el objetivo principal de ejecutar un análisis de vulnerabilidades en la red?",
+  options: [
+    "Identificar y documentar las ubicaciones de las bases de datos de los clientes y financieras",
+    "Relacionar registros de eventos de varios servidores para generar alertas de intrusión",
+    "Determinar si los sistemas están sujetos a CVE que puedan ser aprovechadas por atacantes",
+    "Priorizar automáticamente los puntos débiles de seguridad para su corrección inmediata"
+  ],
+  correct: 2,
+  expl: "El escáner de vulnerabilidades contrasta el estado de los sistemas contra bases de datos de fallos conocidos (CVE) para identificar brechas de seguridad antes que los atacantes."
+},
+{
+  q: "48. Su red doméstica parece ir muy lenta. Examina la GUI del router doméstico y observa que hay un host desconocido conectado. ¿Qué debe hacer para evitar que este host específico se conecte de nuevo?",
+  options: [
+    "Crear una lista de control de acceso de direcciones IP",
+    "Bloquear la dirección IP del host",
+    "Implementar el filtrado de direcciones MAC",
+    "Cambiar el SSID de la red"
+  ],
+  correct: 2,
+  expl: "La dirección MAC identifica de forma única la tarjeta de red física del dispositivo host, impidiendo que vuelva a asociarse al router incluso si renueva su IP por DHCP."
+},
+{
+  q: "49. Observa que se ha compartido una nueva CVE con un grupo de correo electrónico del que forma parte. ¿Qué debe hacer en primer lugar con la CVE?",
+  options: [
+    "Registrar la CVE como parte del plan de recuperación ante desastres",
+    "Examinar los detalles de la vulnerabilidad para determinar si se aplica a su red",
+    "Investigar medidas para impedir que la CVE ataque a la red",
+    "Agregar la CVE a las reglas de firewall de su organización"
+  ],
+  correct: 1,
+  expl: "Antes de tomar cualquier acción o implementar parches/reglas, el primer paso en la gestión de vulnerabilidades es la evaluación de aplicabilidad al inventario actual de la organización."
+},
+{
+  q: "50. Un restaurante instala un segundo enrutador inalámbrico que solo usan los empleados. ¿Qué afirmación describe la manera de configurar el nuevo router de forma segura?",
+  options: [
+    "Configurar una intensidad de señal mayor para que haya cobertura en el aparcamiento",
+    "Configurar el SSID con la difusión deshabilitada",
+    "Configurar el nuevo enrutador para que filtre las direcciones IP",
+    "Configurar el SSID con el mismo SSID usado por el enrutador de los clientes"
+  ],
+  correct: 1,
+  expl: "Ocultar el SSID (deshabilitar el SSID broadcast) ayuda a reducir la visibilidad de la red interna ante clientes u observadores casuales."
+}
+
 ];
 // ESTADO DE LA APLICACIÓN
 let currentQuizIndex = 0;
